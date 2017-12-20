@@ -38,11 +38,14 @@ Vue.component('tiles-list', {
   }
 });
 
+var mgrs = '';
+
 const vm = new Vue({
   el: '#app',
   data: {
     results: []
   },
+  props: ['mgrs'],
   methods: {
     getTiles(section) {
       let url = buildUrl(section);
