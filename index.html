@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sentinel-2 MGRS Tile Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <div class="container" id="app">
+      <h3 class="text-center">Sentinel-2 MGRS Tile Viewer</h3>
+      <section class="callout secondary">
+        <form>
+          <div class="row">
+            <div class="medium-6 columns">
+              <input type="text" v-model="mgrs" placeholder="MGRS" required></input>
+            </div>
+            <div class="medium-6 columns">
+              <a @click="getTiles(mgrs)" class="button expanded">Retrieve</a>
+            </div>
+          </div>
+        </form>
+      </section>
+      <tiles-list :results="results"></tiles-list>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
