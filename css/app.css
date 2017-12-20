@@ -1,7 +1,16 @@
 body {
   padding-top: 40px;
+  background-color: #EEEEEE;
 }
 
 h3 {
   padding-bottom: 20px;
+}
+
+a, a:visited {
+  color: #009933;
+}
+
+a:hover {
+  color: #00B33C;
 }

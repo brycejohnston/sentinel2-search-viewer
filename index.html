@@ -13,16 +13,28 @@
       <section class="callout secondary">
         <form>
           <div class="row">
-            <div class="medium-6 columns">
-              <input type="text" v-model="mgrs" placeholder="MGRS" required></input>
+            <div class="medium-3 columns">
+              <input type="text" v-model="mgrs" placeholder="MGRS (required)" required></input>
             </div>
-            <div class="medium-6 columns">
-              <a @click="getTiles(mgrs)" class="button expanded">Retrieve</a>
+            <div class="medium-3 columns">
+              <input type="text" v-model="start_date" placeholder="Start Date (YYYY-MM-DD)"></input>
+            </div>
+            <div class="medium-3 columns">
+              <input type="text" v-model="end_date" placeholder="End Date (YYYY-MM-DD)"></input>
+            </div>
+            <div class="medium-3 columns">
+              <a @click="getTiles(mgrs, start_date, end_date)" class="button success expanded">Retrieve</a>
             </div>
           </div>
         </form>
       </section>
       <tiles-list :results="results"></tiles-list>
+      <hr>
+      <p class="text-center">
+        Powered by <a href="https://sentinel2.cropquest.net" target="_blank">Sentinel-2 Search API</a>
+        | <a href="https://github.com/CropQuest/sentinel2-search-viewer" target="_blank">GitHub</a>
+        | Developed by <a href="https://tech.cropquest.com" target="_blank">Crop Quest</a>
+      </p>
     </div>
     <script src="js/vue.min.js"></script>
     <script src="js/axios.min.js"></script>

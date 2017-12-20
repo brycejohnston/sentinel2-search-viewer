@@ -1,7 +1,17 @@
 const BaseUrl = "https://sentinel2.cropquest.net/api/v1/tiles.json";
 
-function buildUrl (mgrs) {
-  return BaseUrl + "?mgrs=" + mgrs
+function buildUrl (mgrs, start_date, end_date) {
+  url = BaseUrl;
+  if (mgrs !== undefined) {
+    url = url + "?mgrs=" + mgrs;
+    if (start_date !== undefined) {
+      url = url + "&start_date=" + start_date;
+    }
+    if (end_date !== undefined) {
+      url = url + "&end_date=" + end_date;
+    }
+  }
+  return url;
 }
 
 Vue.component('tiles-list', {
@@ -16,7 +26,7 @@ Vue.component('tiles-list', {
             </div>
             <div class="card-section">
               <p>
-                <img :src="tile.thumbnail">
+                <img :src="tile.thumbnail" class="thumbnail">
               </p>
             </div>
           </div>
@@ -38,17 +48,15 @@ Vue.component('tiles-list', {
   }
 });
 
-var mgrs = '';
-
 const vm = new Vue({
   el: '#app',
   data: {
     results: []
   },
-  props: ['mgrs'],
+  props: ['mgrs', 'start_date', 'end_date'],
   methods: {
-    getTiles(section) {
-      let url = buildUrl(section);
+    getTiles(mgrs, start_date, end_date) {
+      let url = buildUrl(mgrs, start_date, end_date);
       axios.get(url).then((response) => {
         this.results = response.data;
       }).catch( error => { console.log(error); });
