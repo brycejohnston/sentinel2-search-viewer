@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sentinel-2 MGRS Tile Viewer</title>
+    <title>Sentinel-2 MGRS Tile Previewer</title>
     <link rel="stylesheet" href="css/foundation.min.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
     <div class="container" id="app">
-      <h3 class="text-center">Sentinel-2 MGRS Tile Viewer</h3>
+      <h3 class="text-center">Sentinel-2 MGRS Tile Previewer</h3>
       <p class="text-center">mgrs format is utm zone + latitude band + grid square (e.g. 14SQJ)</p>
       <section class="callout secondary">
         <form>
@@ -32,9 +32,8 @@
       <tiles-list :results="results"></tiles-list>
       <hr>
       <p class="text-center">
-        Powered by <a href="https://sentinel2.cropquest.net" target="_blank">Sentinel-2 Search API</a>
-        | <a href="https://github.com/CropQuest/sentinel2-search-viewer" target="_blank">GitHub</a>
-        | Developed by <a href="https://tech.cropquest.com" target="_blank">Crop Quest</a>
+        Powered by <a href="https://github.com/beaorn/sentinel2-search-api" target="_blank">sentinel2-search-api</a>
+        | <a href="https://github.com/beaorn/sentinel2-search-viewer" target="_blank">GitHub</a>
       </p>
     </div>
     <script src="js/vue.min.js"></script>
