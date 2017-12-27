@@ -1,4 +1,4 @@
-const BaseUrl = "https://sentinel2.cropquest.net/api/v1/tiles.json";
+const BaseUrl = "https://sentinel2.satgateway.com/api/v1/tiles.json";
 
 function buildUrl (mgrs, start_date, end_date) {
   url = BaseUrl;
